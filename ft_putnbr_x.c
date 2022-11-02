@@ -32,7 +32,3 @@ unsigned int	ft_putnbr_x(unsigned int n)
 		i += ft_putchar (n + 87);
 	return (i);
 }
- int main()
- {
-	ft_putnbr_x(-50);
- }

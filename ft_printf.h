@@ -11,11 +11,15 @@
 /* ************************************************************************** */
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-#include <stdarg.h>
-#include <unistd.h>
+# include <stdarg.h>
+# include <unistd.h>
 
-int     ft_printf(const char *s, ...); 
-int    ft_putnbr(int i);
-
+int             ft_printf(const char *s, ...); 
+int             ft_putnbr(int i);
+int             ft_putchar(char c);
+unsigned int	ft_putnbr_x(unsigned int n);
+unsigned int	ft_putnbr_xx(unsigned int n);
+unsigned int    ft_putnbr_u(unsigned int n);
+int             ft_putstr(char *str);
 
 #endif

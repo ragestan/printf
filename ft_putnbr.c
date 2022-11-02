@@ -38,8 +38,3 @@ int	ft_putnbr(int n)
 	}
 	return (i);
 }
-
-int main ()
-{
-	printf("%i",ft_putnbr(5457));
-}

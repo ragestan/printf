@@ -16,7 +16,7 @@ unsigned int	ft_putnbr_u(unsigned int n)
 {
 	unsigned int i;
 	i = 0;
-	else if (n < 0)
+	if (n < 0)
 	{
 		i += ft_putchar ('-');
 		n = -n;

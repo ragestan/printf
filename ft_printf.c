@@ -18,7 +18,7 @@ static int  ft_help(char c, va_list tmp)
     if (c == 'i' || c == 'd')
         i = ft_putnbr(va_arg(tmp, int));
     if (c == 'c')
-        i = ft_putchar(va_arg(tmp, char));
+        i = ft_putchar((char )(va_arg(tmp, int)));
     if (c == 's')
         i = ft_putstr(va_arg(tmp, char *));
     if (c == 'x')
@@ -30,8 +30,6 @@ static int  ft_help(char c, va_list tmp)
     if (c == 'p')
         i = ft_putstr("0x");
         i += ft_putnbr_x(va_arg(tmp, unsigned int));
-    else
-        i = ft_putchar(c);
     return (i);
 }
 
@@ -39,13 +37,19 @@ int ft_printf(const char *s, ...)
 {
     va_list tmp;
     int     i;
+    int     l;
 
+    l = 0;
+    i = 0;
+    va_start(tmp,s);
     while (s[i])
     {
-        if (s[i++]= '%' && s[i] != '/0')
-            ft_help(s[i++], tmp);
-        if (s[i] != '%' && s[i] != '/0')
-            ft_putchar(s[i]);
+        if (s[i++] == '%' && s[i] != '\0')
+          l +=  ft_help(s[i++], tmp);
+        if (s[i] != '%' && s[i] != '\0')
+          l +=  ft_putchar(s[i]);
         i++;
     }
+    va_end(tmp);
+    return (l);
 }

@@ -14,7 +14,8 @@
 
 unsigned int	ft_putnbr_u(unsigned int n)
 {
-	unsigned int i;
+	unsigned int	i;
+
 	i = 0;
 	if (n < 0)
 	{
@@ -33,4 +34,3 @@ unsigned int	ft_putnbr_u(unsigned int n)
 	}
 	return (i);
 }
-

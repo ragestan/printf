@@ -14,7 +14,8 @@
 
 unsigned int	ft_putnbr_xx(unsigned int n)
 {
-	unsigned int i;
+	unsigned int	i;
+
 	i = 0;
 	if (n < 0)
 	{
@@ -22,12 +23,12 @@ unsigned int	ft_putnbr_xx(unsigned int n)
 		n = -n;
 		i += ft_putnbr_xx (n);
 	}
-	else if (n > 16)
+	else if (n > 15)
 	{
 		i += ft_putnbr_xx (n / 16);
 		i += ft_putnbr_xx (n % 16);
 	}
-	else if (n < 9)
+	else if (n <= 9)
 		i += ft_putchar (n + 48);
 	else
 		i += ft_putchar (n + 55);

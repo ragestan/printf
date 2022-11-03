@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr_p.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbentalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/01 17:11:55 by zbentalh          #+#    #+#             */
-/*   Updated: 2022/11/01 17:11:59 by zbentalh         ###   ########.fr       */
+/*   Created: 2022/11/02 22:18:56 by zbentalh          #+#    #+#             */
+/*   Updated: 2022/11/02 22:19:13 by zbentalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <unistd.h>
 
-int				ft_printf(const char *s, ...);
-int				ft_putnbr(int i);
-int				ft_putchar(char c);
-unsigned int	ft_putnbr_x(unsigned int n);
-unsigned int	ft_putnbr_xx(unsigned int n);
-unsigned int	ft_putnbr_u(unsigned int n);
-unsigned int	ft_putnbr_a(size_t n);
-int				ft_putstr(char *str);
+#include "ft_printf.h"
 
-#endif
+unsigned int	ft_putnbr_a(size_t n)
+{
+	unsigned int	i;
+
+	i = 0;
+	if (n < 0)
+	{
+		i += ft_putchar ('-');
+		n = -n;
+		i += ft_putnbr_a (n);
+	}
+	else if (n > 15)
+	{
+		i += ft_putnbr_a (n / 16);
+		i += ft_putnbr_a (n % 16);
+	}
+	else if (n <= 9)
+		i += ft_putchar (n + 48);
+	else
+		i += ft_putchar (n + 87);
+	return (i);
+}

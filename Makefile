@@ -7,6 +7,7 @@ SRC 	= ft_printf.c\
 			ft_putnbr_u.c\
 			ft_putnbr.c\
 			ft_putstr.c\
+			ft_putnbr_a.c\
 
 FILIO = $(SRC:.c=.o)
 
